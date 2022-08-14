@@ -1,0 +1,115 @@
+<navbarComponent></navbarComponent>
+<!-- Search and View -->
+<div class="container my-2">
+    <div class="row row-cols-3">
+        <div class="col-md col-sm-12 mt-2">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                    style="height: 45px;">
+                <button class="btn btn-success" type="submit">SEARCH</button>
+            </form>
+        </div>
+        <div class="col-md col-sm-12 mt-2">
+            <div class="btn-group d-flex">
+                <button type="button" class="btn btn-dark text-white" disabled>VIEW: </button>
+                <button type="button" class="btn btn-dark" (click)="viewClassicChange()" [disabled]="viewClassic">
+                    <img src="/assets/img/classic.png" alt="Classic" style="width:30px; height:30px">
+                </button>
+                <button type="button" class="btn btn-dark" (click)="viewListChange()" [disabled]="viewList">
+                    <img src="/assets/img/list.png" alt="List" style="width:30px; height:30px">
+                </button>
+                <button type="button" class="btn btn-dark" (click)="viewGalleryChange()" [disabled]="viewGallery">
+                    <img src="/assets/img/gallery.png" alt="Gallery" style="width:30px; height:30px">
+                </button>
+            </div>
+        </div>
+        <div class="col-md col-sm-12 mt-2">
+            <div class="btn-group d-flex">
+                <div class="dropdown">
+                    <button type="button" style="width: 140px;" class="btn btn-warning dropdown-toggle"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/assets/img/filter.png" alt="List" style="width:30px; height:30px">
+                    </button>
+                    <ul class="dropdown-menu bg-warning">
+                        <li><a class="dropdown-item" href="#">Name Lastname (A-Z)</a></li>
+                        <li><a class="dropdown-item" href="#">Name Lastname (Z-A)</a></li>
+                        <li><a class="dropdown-item" href="#">Title (A-Z)</a></li>
+                        <li><a class="dropdown-item" href="#">Title (Z-A)</a></li>
+                        <li><a class="dropdown-item" href="#">Birth Date</a></li>
+                        <li><a class="dropdown-item" href="#">City</a></li>
+                        <li><a class="dropdown-item" href="#">Country</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn-info">
+                    <img src="/assets/img/save.png" alt="Save" style="width:30px; height:30px">
+                </button>
+                <button type="button" class="btn btn-danger">
+                    <img src="/assets/img/plus.png" alt="Plus" style="width:30px; height:30px">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Employees Cards View 1 -->
+<div class="container mt-4" *ngIf="viewClassic == true">
+    <div class="row">
+        <div class="col-md-4 mt-4" *ngFor="let employee of employeeLists">
+            <div class="card mb-3">
+                <div class="row g-1">
+                    <div class="col-6 mt-5">
+                        <img src="{{img}}{{employee.imageName}}" class="ms-3 mt-5" alt="Employees Images"
+                            style="width: 175px; height: 175px;">
+                    </div>
+                    <div class="col-6">
+                        <div class="card-body">
+                            <div [ngClass]="{'bg-warning': employee.title === 'Sales Representative',
+                                                'bg-danger': employee.title === 'Vice President, Sales',
+                                                'bg-info': employee.title === 'Sales Manager',
+                                                'bg-primary': employee.title === 'Inside Sales Coordinator',
+                                                'bg-success': employee.title === 'Software Developer'
+                                                }" class="mb-2 m-auto d-flex justify-content-center align-items-center bg-warning border
+                                border-4 border-dark rounded-circle" style="width: 60px; height:60px ;">
+                                <strong>{{employee.title | title}}</strong>
+                            </div>
+                            <h6 class="card-text">
+                                <span class="text-info">Name :</span>
+                            </h6>
+                            <h6 class="card-text">
+                                <span class="text-dark">{{employee.firstName}}</span>
+                            </h6>
+                            <h6 class="card-text">
+                                <span class="text-info">Last Name :</span>
+                            </h6>
+                            <h6 class="card-text">
+                                <span class="text-dark">{{employee.lastName}}</span>
+                            </h6>
+                            <h6 class="card-text">
+                                <span class="text-info">Country / City :</span>
+                            </h6>
+                            <h6 class="card-text">
+                                <span class="text-dark">{{employee.country}} / {{employee.city}}</span>
+                            </h6>
+                            <h6 class="card-text">
+                                <span class="text-info">Birth Date :</span>
+                            </h6>
+                            <h6 class="card-text">
+                                <span class="text-dark">{{employee.birthDate}}</span>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-auto my-4">
+                    <div class="col">
+                        <div class="card-group">
+                            <button type="button" class="btn btn-danger me-2">DELETE</button>
+                            <button type="button" class="btn btn-dark me-2">UPDATE</button>
+                            <button type="button" class="btn btn-info">DETAILS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footerComponent></footerComponent>

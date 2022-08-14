@@ -1,0 +1,49 @@
+{
+  "login": {
+    "title": "Giriş",
+    "username.text": "Kullanıcı Adı",
+    "password.text": "Parola",
+    "warning.message": "Hatalı kullanıcı adı ve ya parola.",
+    "language": "tr",
+    "language.name": "Türkçe",
+    "button.login": "Giriş",
+    "button.register": "Kayıt Ol"
+  },
+  "register": {
+    "title": "Kayıt",
+    "firstname.text": "İsim",
+    "lastname.text": "Soyisim",
+    "username.text": "Kullanıcı Adı",
+    "password.text": "Parola",
+    "success.message": "Kayıt işlemi başarılı.",
+    "warning.message": "Birşeyler ters gitti!",
+    "language.name": "Türkçe",
+    "button.login": "Giriş",
+    "button.register": "Kayıt Ol"
+  },
+  "navbar": {
+    "title": "TechCareer.net",
+    "language.name": "Türkçe",
+    "navHome": "Anasayfa",
+    "navProduct": "Ürünler",
+    "navCategory": "Kategoriler",
+    "navEmploye": "Personeller",
+    "navContact": "Bize Ulaşın"
+  },
+  "footer": {
+    "text": "© 2022 Ömer Kavak tarafından bitirme projesi olarak yapılmıştır. Bütün hakları saklıdır.",
+    "footHome": "Anasayfa",
+    "footProduct": "Ürünler",
+    "footCategory": "Kategoriler",
+    "footEmploye": "Personeller",
+    "footContact": "Bize Ulaşın"
+  },
+  "home": {
+    "carusel.item1.title": "Kevin Elijah Burgess",
+    "carusel.item1.text": "Kevin Elijah Burgess, St. Petersburg, Florida'dan Amerikalı bir hip hop sanatçısıdır."
+  },
+  "products": {},
+  "categories": {},
+  "employees": {},
+  "contactus": {}
+}

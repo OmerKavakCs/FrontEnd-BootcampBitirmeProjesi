@@ -1,0 +1,75 @@
+<div class="align-center">
+    <div class="container d-flex justify-content-center mt-5">
+        <form class="row col-md-6 d-flex justify-content-center p-4 border border-white border-5 rounded-3 shadow-lg"
+            #form="ngForm" (ngSubmit)="registerUser(form)">
+            <div
+                class="form-signin col-md-6 d-inline-flex justify-content-center p-4 my-5 text-white border border-white border-3 rounded-3">
+                <h1>{{ "register.title" | translate}}</h1>
+            </div>
+            <div class="col-md-12">
+                <label for="firstname" class="form-label text-white fs-4 mt-1">
+                    {{"register.firstname.text" | translate}}:
+                </label>
+                <input type="text" [(ngModel)]="registerModel.firstname" id="firstname"
+                    class="form-control shadow-none mt-1 p-2" name="firstname"
+                    title="{{'register.firstname.text' | translate}}"
+                    placeholder="{{'register.firstname.text' | translate}}" required minlength="3">
+            </div>
+            <div class="col-md-12">
+                <label for="lastname" class="form-label text-white mt-1 fs-4">
+                    {{"register.firstname.text" | translate}}:
+                </label>
+                <input type="text" [(ngModel)]="registerModel.lastname" id="lastname"
+                    class="form-control shadow-none p-2" name="lastname"
+                    title="{{'register.lastname.text' | translate}}"
+                    placeholder="{{'register.lastname.text' | translate}}" required minlength="3">
+            </div>
+            <div class="col-md-12">
+                <label for="username" class="form-label text-white mt-1 fs-4">
+                    {{"register.username.text" | translate}}:
+                </label>
+                <input type="text" [(ngModel)]="registerModel.username" id="username"
+                    class="form-control shadow-none p-2" name="username"
+                    title="{{'register.username.text' | translate}}"
+                    placeholder="{{'register.username.text' | translate}}" required minlength="3">
+            </div>
+            <div class="col-md-12">
+                <label for="password" class="form-label text-white mt-1 fs-4">
+                    {{"register.password.text" | translate}}:
+                </label>
+                <input type="password" [(ngModel)]="registerModel.password" id="password"
+                    class="form-control shadow-none mb-2 p-2" name="password"
+                    title="{{'register.password.text' | translate}}"
+                    placeholder="{{'register.password.text' | translate}}" required>
+            </div>
+            <div class="col-md-9">
+                {{"register.warning.message" | translate}}
+            </div>
+            <div class="col-md-3 align-self-end">
+                <button class="btn float-end mt-1 me-2">
+                    <img src="/assets/img/eng.svg" style="width:34px ; height: 34px;"
+                        title="{{'register.language.name' | translate}}" alt="{{'register.language.name' | translate}}">
+                </button>
+            </div>
+            <div class="col-md-6">
+                <a href="#">
+                    <button type="button" class="form-control btn btn-grad text-white mt-3 fs-3"
+                        title="{{'login.button.login' | translate}}">
+                        <img src="/assets/img/lock.png" alt="Login" class="mb-2 me-2" width="25px" height="25px">
+                        {{"register.button.login" | translate}}
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="#">
+                    <button [disabled]="form.invalid" type="submit"
+                        class="form-control btn btn-grad text-white mt-3 fs-3"
+                        title="{{'register.button.register' | translate}}">
+                        <img src="/assets/img/padlock.png" alt="Register" class="mb-2 me-2" width="25px" height="25px">
+                        {{"register.button.register" | translate}}
+                    </button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

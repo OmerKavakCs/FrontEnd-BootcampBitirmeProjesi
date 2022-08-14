@@ -1,0 +1,51 @@
+{
+  "login": {
+    "title": "Login",
+    "username.text": "Username",
+    "password.text": "Password",
+    "warning.message": "Wrong username or password",
+    "language": "en",
+    "language.name": "English",
+    "button.login": "Login",
+    "button.register": "Register"
+  },
+  "register": {
+    "title": "Register",
+    "firstname.text": "First Name",
+    "lastname.text": "Lastname",
+    "username.text": "Username",
+    "password.text": "Password",
+    "success.message": "Successfully register",
+    "warning.message": "Something went wrong!",
+    "language.name": "English",
+    "button.login": "Login",
+    "button.register": "Register"
+  },
+  "navbar": {
+    "title": "TechCareer.net",
+    "language.name": "English",
+    "navHome": "Home",
+    "navProduct": "Products",
+    "navCategory": "Categories",
+    "navEmploye": "Employees",
+    "navContact": "Contact Us"
+  },
+  "footer": {
+    "text": "© 2022 It was made by Ömer Kavak as a graduation project. All rights reserved.",
+    "footHome": "Home",
+    "footProduct": "Products",
+    "footCategory": "Categories",
+    "footEmploye": "Employees",
+    "footContact": "Contact Us"
+  },
+  "home": {
+    "home": {
+      "carusel.item1.title": "Kevin Elijah Burgess",
+      "carusel.item2.text": "Kevin Elijah Burgess, is an American hip hop artist from St. Petersburg, Florida."
+    }
+  },
+  "products": {},
+  "categories": {},
+  "employees": {},
+  "contactus": {}
+}

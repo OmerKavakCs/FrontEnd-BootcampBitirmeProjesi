@@ -1,0 +1,41 @@
+<!-- Navbar  -->
+<nav class="navbar navbar-expand-xl py-3">
+    <div class="container py-3">
+        <a href="#" class="navbar-brand fs-4">
+            <img src="/assets/img/logo.png" alt="TechCareer.net Logo" title="{{'navbar.title' | translate}}">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navmenu">
+            <ul class="navbar-nav ms-auto fs-5">
+                <li class="nav-item">
+                    <a routerLink="/home" routerLinkActive="active" class="nav-link">{{"navbar.navHome" |
+                        translate}}</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/products" routerLinkActive="active" class="nav-link">{{"navbar.navProduct" |
+                        translate}}</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/categories" routerLinkActive="active" class="nav-link">{{"navbar.navCategory" |
+                        translate}}</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/employees" routerLinkActive="active" class="nav-link">{{"navbar.navEmploye" |
+                        translate}}</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/contactus" routerLinkActive="active" class="nav-link">{{"navbar.navContact" |
+                        translate}}</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn">
+                        <img src="/assets/img/eng.svg" style="width: 34px; height: 34px;"
+                            title="{{'navbar.language.name' | translate}}" alt="{{'navbarlanguage.name' | translate}}">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

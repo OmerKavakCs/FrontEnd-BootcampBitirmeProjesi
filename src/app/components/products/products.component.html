@@ -1,0 +1,393 @@
+<navbarComponent></navbarComponent>
+<!-- Search and View -->
+<div class="container my-2">
+    <div class="row row-cols-3">
+        <div class="col-md col-sm-12 mt-2">
+            <div class="d-flex" role="search">
+                <input class="form-control me-2 shadow-none" type="text" placeholder="Search" aria-label="Search"
+                    style="height: 45px;">
+                <button class="btn btn-success shadow-none" type="submit">SEARCH</button>
+            </div>
+        </div>
+        <div class="col-md col-sm-12 mt-2">
+            <div class="btn-group d-flex">
+                <button type="button" class="btn btn-dark text-white" disabled>VIEW: </button>
+                <button type="button" class="btn btn-dark" (click)="viewClassicChange()" [disabled]="viewClassic">
+                    <img src="/assets/img/classic.png" alt="Classic" style="width:30px; height:30px">
+                </button>
+                <button type="button" class="btn btn-dark" (click)="viewListChange()" [disabled]="viewList">
+                    <img src="/assets/img/list.png" alt="List" style="width:30px; height:30px">
+                </button>
+                <button type="button" class="btn btn-dark" (click)="viewGalleryChange()" [disabled]="viewGallery">
+                    <img src="/assets/img/gallery.png" alt="Gallery" style="width:30px; height:30px">
+                </button>
+            </div>
+        </div>
+        <div class="col-md col-sm-12 mt-2">
+            <div class="btn-group d-flex">
+                <div class="dropdown">
+                    <button type="button" style="width: 140px;" class="btn btn-warning dropdown-toggle"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/assets/img/filter.png" alt="List" style="width:30px; height:30px">
+                    </button>
+                    <ul class="dropdown-menu bg-warning">
+                        <li><a class="dropdown-item" href="#">High-Low Price</a></li>
+                        <li><a class="dropdown-item" href="#">Low-High Price</a></li>
+                        <li><a class="dropdown-item" href="#">Product Name (A-Z)</a></li>
+                        <li><a class="dropdown-item" href="#">Product Name (Z-A)</a></li>
+                        <li><a class="dropdown-item" href="#">Stock Less Than Ten</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#saveModal">
+                    <img src="/assets/img/save.png" alt="Save" style="width:30px; height:30px">
+                </button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addModal">
+                    <img src=" /assets/img/plus.png" alt="Plus" style="width:30px; height:30px">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Product Cards View 1 -->
+<div class="container mt-4" *ngIf="viewClassic == true">
+    <div class="row">
+        <div class="d-block col-md-4 mt-4" *ngFor="let product of productLists">
+            <div class="card bg-dark" style="width:420px; height:536px">
+                <img src="{{img}}{{product.imageName}}" class="m-auto my-4" alt="Products Images"
+                    title="Products Images" style="width: 250px; height: 250px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h5 class="card-title mb-3">
+                                <strong class="text-info">Name : </strong>
+                                <strong class="text-white">{{product.name}}</strong>
+                            </h5>
+                            <h5 class="card-title mb-3">
+                                <strong class="text-warning">Price : </strong>
+                                <strong class="text-white">{{product.price}}</strong>
+                            </h5>
+                            <h5 class="card-title mb-3">
+                                <strong class="text-danger"> Stock : </strong>
+                                <strong class="text-white">{{product.stock}}</strong>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-group mb-4 m-auto">
+                    <button type="button" class="btn btn-danger me-2"
+                        (click)="deleteProduct(product.id)">DELETE</button>
+                    <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
+                        data-bs-target="#updateModal">UPDATE</button>
+                    <button type="button" class="btn btn-info me" data-bs-toggle="modal"
+                        data-bs-target="#detailModal">DETAILS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product Cards View 2 -->
+<div class="container mt-4" *ngIf="viewList == true">
+    <div class="row">
+        <div class="col-12 mt-4" *ngFor="let product of productLists">
+            <div class="card bg-dark mb-3">
+                <div class="row g-0">
+                    <div class="col-md-2">
+                        <img src="{{img}}{{product.imageName}}" class="img-fluid rounded-start" alt="Products Images"
+                            title="Products Images" style="width: 250px; height: 250px;">
+                    </div>
+                    <div class="col-md-7 m-auto">
+                        <div class="table-responsive d-block">
+                            <table class=" table table-borderless text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <h5 class="card-title">
+                                                <strong class="text-info">Name</strong>
+                                            </h5>
+                                        </th>
+                                        <th scope="col">
+                                            <h5 class="card-title">
+                                                <strong class="text-warning">Price</strong>
+                                            </h5>
+                                        </th>
+                                        <th scope="col">
+                                            <h5 class="card-title">
+                                                <strong class="text-danger">Stock</strong>
+                                            </h5>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-white">{{product.name}}</strong>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-white">{{product.price}}</strong>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-white">{{product.stock}}</strong>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-3 m-auto">
+                        <div class="card-group mb-4 m-auto">
+                            <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal">DELETE</button>
+                            <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
+                                data-bs-target="#updateModal">UPDATE</button>
+                            <button type="button" class="btn btn-info me" data-bs-toggle="modal"
+                                data-bs-target="detailModal" routerLink="/products/{{product.id}}">DETAILS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Product Cards View 3 -->
+<div class="container mt-4" *ngIf="viewGallery == true">
+    <div class="row">
+        <div class="col-6 mt-4" *ngFor="let product of productLists">
+            <div class="card bg-dark mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{img}}{{product.imageName}}" class="img-fluid rounded-start" alt="Products Images"
+                            title="Products Images" style="width: 250px; height: 250px;">
+                    </div>
+                    <div class="col-md-8 m-auto">
+                        <div class="table-responsive d-block">
+                            <table class="table table-borderless text-center">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-info">Name :</strong>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-white">{{product.name}}</strong>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-warning">Price</strong>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-white">{{product.price}}</strong>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-danger">Stock</strong>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5 class="card-title">
+                                                <strong class="text-white">{{product.stock}}</strong>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="mt-3 m-auto">
+                                                <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">DELETE</button>
+                                                <button type="button" class="btn btn-outline-warning me-2"
+                                                    data-bs-toggle="modal" data-bs-target="#updateModal">UPDATE</button>
+                                                <button type="button" class="btn btn-info me" data-bs-toggle="modal"
+                                                    data-bs-target="detailModal">DETAILS</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<!-- Save Modal -->
+<div class="modal" id="saveModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Do you want to save your settings?</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Save Modal
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Add Modal -->
+<div class="modal" id="addModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-center">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="text-white">Add New Product</span></h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form #form="ngForm" (ngSubmit)="postProduct(form)">
+                    <div class="mb-3">
+                        <label for="name" class="form-label text-dark fs-5">
+                            <span class="text-info">Product Name</span>
+                        </label>
+                        <input [(ngModel)]="productModal.name" name="name" type="text" class="form-control shadow-none"
+                            required minlength="5">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label text-dark fs-5">
+                            <span class="text-warning">Price</span>
+                        </label>
+                        <input [(ngModel)]="productModal.price" name="price" type="text"
+                            class="form-control shadow-none" required minlength="2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="stock" class="form-label text-dark fs-5">
+                            <span class="text-danger">Stock</span>
+                        </label>
+                        <input [(ngModel)]="productModal.stock" name="stock" type="text"
+                            class="form-control shadow-none" required minlength="1" minlength="2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label text-dark fs-5">
+                            <span class="text-white">Image Name :</span>
+                        </label>
+                        <select [(ngModel)]="productModal.imageName" name="imageName" class="form-select">
+                            <option value="">Choose image</option>
+                            <option value="{{product.imageName}}" *ngFor="let product of productLists">
+                                {{product.imageName}}
+                            </option>
+                        </select>
+                    </div>
+                    <button [disabled]="form.invalid" class="btn btn-success w-100 mb-3" data-bs-dismiss="modal">
+                        Add Product
+                    </button>
+                    <button class="btn btn-danger w-100 mb-3" data-bs-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal" id="deleteModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-center">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title text-white">Are you sure you want to delete ?</h4>
+            </div>
+
+            <div>
+                <button class="btn btn-danger w-100 mb-3" data-bs-dismiss="modal">Delete</button>
+                <button class="btn btn-success w-100 mb-3" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Modal -->
+<div class="modal" id="updateModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Update Product</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Update Modal
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Update</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Detail Modal -->
+<div class="modal" id="detailModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark">
+
+            <!-- Modal Header -->
+            <div class="modal-header text-white">
+                <h4 class="modal-title">Product Detail</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body text-white">
+                <div class="row">
+                    <div class="col">
+                        Product Name :
+                        Price :
+                        Stock :
+                        image :
+                    </div>
+                    <div class="col-6">
+                        product.name}}
+                        price}}
+                        stock}}
+                        image :}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footerComponent></footerComponent>

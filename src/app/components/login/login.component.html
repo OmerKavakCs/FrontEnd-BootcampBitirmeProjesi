@@ -1,0 +1,61 @@
+<div class="align-center">
+    <div class="container d-flex justify-content-center mt-5">
+        <form class="row col-md-6 d-flex justify-content-center p-4 border border-white border-5 rounded-3 shadow-lg"
+            #form="ngForm" (ngSubmit)="loginUser(form)">
+            <div
+                class="col-md-6 d-inline-flex justify-content-center p-4 my-5 text-white border border-white border-3 rounded-3">
+                <h1>{{ "login.title" | translate}}</h1>
+            </div>
+            <div class="col-md-12">
+                <label for="username" class="form-label text-white mt-1 fs-4">
+                    {{"login.username.text" | translate}}:
+                </label>
+                <input type="text" [(ngModel)]="loginModel.username" id="username" name="username"
+                    class="form-control shadow-none p-2" title="{{'login.username.text' | translate}}"
+                    placeholder="{{'login.username.text' | translate}}" required minlength="3">
+            </div>
+            <div class="col-md-12">
+                <label for="password" class="form-label text-white mt-1 fs-4">
+                    {{"login.password.text" | translate}}:
+                </label>
+                <input type="password" [(ngModel)]="loginModel.password" id="password" name="password"
+                    class="form-control shadow-none mb-2 p-2" title="{{'login.password.text' | translate}}"
+                    placeholder="{{'login.password.text' | translate}}" required minlength="3">
+            </div>
+            <div class="col-md-9">
+                {{"login.warning.message" | translate}}
+            </div>
+            <div class="col-md-3 align-self-end">
+                <button type="button" class="btn float-end mt-1 me-2" title="{{'login.language.name' | translate}}">
+                    <img src="/assets/img/eng.svg" alt="{{'login.language.name' | translate}}"
+                        style="width:34px ; height: 34px;">
+                </button>
+            </div>
+
+
+
+
+
+            <!-- Buttons -->
+            <div class="col-md-6">
+                <a href="#">
+                    <button [disabled]="form.invalid" type="submit"
+                        class="form-control btn btn-grad text-white mt-3 fs-3"
+                        title="{{'login.button.login'| translate}}">
+                        <img src="/assets/img/lock.png" alt="Login" class="mb-2 me-2" width="25px" height="25px">
+                        {{"login.button.login" | translate}}
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a routerLink="/register">
+                    <button type="button" class="form-control btn btn-grad text-white mt-3 fs-3"
+                        title="{{'login.button.register' | translate}}">
+                        <img src="/assets/img/padlock.png" alt="Register" class="mb-2 me-2" width="25px" height="25px">
+                        {{"login.button.register" | translate}}
+                    </button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
